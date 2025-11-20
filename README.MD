@@ -101,7 +101,7 @@ In order to log these audits, we create a new database table:
 CREATE TABLE auditlog (id INT AUTO_INCREMENT,
     username VARCHAR(100),
     status VARCHAR(20),
-    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    time DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id));
 ```
 
@@ -126,7 +126,7 @@ We can then fetch these from the database and display it on our /users/audit rou
 
 ```js
 router.get("/audit", function (req, res, next) {
-  let sqlquery = "SELECT * FROM auditlog ORDER BY timestamp DESC"; //get all audit logs (list by time added)
+  let sqlquery = "SELECT * FROM auditlog ORDER BY time DESC"; //get all audit logs (list by time added)
   // execute sql query
   db.query(sqlquery, (err, result) => {
     if (err) {

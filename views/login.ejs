@@ -9,7 +9,14 @@
     <!-- form to login users using username and password fields -->
     <form method="POST" action="/users/loggedin">
       <p>
-        Username: <input id="username" type="text" name="username" required />
+        Username:
+        <input
+          id="username"
+          type="text"
+          name="username"
+          maxlength="50"
+          required
+        />
       </p>
       <p>
         Password:

@@ -12,12 +12,19 @@ CREATE TABLE IF NOT EXISTS books (
     PRIMARY KEY(id));
 
 CREATE TABLE IF NOT EXISTS users (
-    id     INT AUTO_INCREMENT,
-    username   VARCHAR(50),
-    first_name   VARCHAR(100),
-    last_name   VARCHAR(100),
-    email   VARCHAR(255),
+    id              INT AUTO_INCREMENT,
+    username        VARCHAR(50),
+    first_name      VARCHAR(100),
+    last_name       VARCHAR(100),
+    email           VARCHAR(255),
     hashedPassword  VARCHAR(255),
+    PRIMARY KEY(id));
+
+CREATE TABLE IF NOT EXISTS auditlog (
+    id          INT AUTO_INCREMENT,
+    username    VARCHAR(50),
+    status      VARCHAR(50),
+    time        DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id));
 
 # Create the application user

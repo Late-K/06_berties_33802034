@@ -29,6 +29,11 @@ router.post("/registered", function (req, res, next) {
           return res.send("Registration failed: Username already exists.");
         }
         next(err);
+        if (req.body.username.length > 50) {
+          return res.send(
+            "Username too long: maximum length is 50 characters."
+          );
+        }
       } else
         res.send(
           "Hello " +
@@ -109,7 +114,7 @@ router.post("/loggedin", function (req, res, next) {
 });
 
 router.get("/audit", function (req, res, next) {
-  let sqlquery = "SELECT * FROM auditlog ORDER BY timestamp DESC"; //get all audit logs (list by time added)
+  let sqlquery = "SELECT * FROM auditlog ORDER BY time DESC"; //get all audit logs (list by time added)
   // execute sql query
   db.query(sqlquery, (err, result) => {
     if (err) {

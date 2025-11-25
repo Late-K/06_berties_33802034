@@ -138,3 +138,30 @@ router.get("/audit", function (req, res, next) {
 ```
 
 This allows admins to see all login attempts.
+
+## Restricted Access
+
+Most pages in this application are restricted behind user authentication, with only the about page, login page, and registration page being accessable without logging in.
+
+This is enforced with redirectLogin() middleware that checks whether the user has an active session, if not they are automatically redirected to the login page.
+
+This ensures that sensitive data, such as lists of users, cannot be accessed anonymously without permission.
+
+## Validation
+
+I have added validation logic using the express-validator library to the registration, login and addbook pages, which are all pages aside from search books that require a user input. This helps prevent db crashes, and ensures application and user security by validating names and passwords.
+
+## Sanatisation
+
+I have wrapped many fields with req.sanatize from the express-sanatizer libary to protect them from XSS attacks. XSS happens when malicious users insert JS into fields that are then displayed on html pages.
+
+These fields include:
+
+- usernames
+- first names
+- last names
+- emails
+- book names
+- search inputs
+
+Passwords and price values arent wrapped since they should either never be rendered in html, or cant contain scripts due to their input type.

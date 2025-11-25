@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS books (
 
 CREATE TABLE IF NOT EXISTS users (
     id              INT AUTO_INCREMENT,
-    username        VARCHAR(50),
+    username        VARCHAR(50) UNIQUE,
     first_name      VARCHAR(100),
     last_name       VARCHAR(100),
     email           VARCHAR(255),
@@ -29,4 +29,4 @@ CREATE TABLE IF NOT EXISTS auditlog (
 
 # Create the application user
 CREATE USER IF NOT EXISTS 'berties_books_app'@'localhost' IDENTIFIED BY 'qwertyuiop'; 
-GRANT ALL PRIVILEGES ON berties_books.* TO ' berties_books_app'@'localhost';
+GRANT ALL PRIVILEGES ON berties_books.* TO 'berties_books_app'@'localhost';

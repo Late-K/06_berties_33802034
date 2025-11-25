@@ -149,7 +149,7 @@ This ensures that sensitive data, such as lists of users, cannot be accessed ano
 
 ## Validation
 
-I have added validation logic using the express-validator library to the registration, login and addbook pages, which are all pages aside from search books that require a user input. This helps prevent db crashes, and ensures application and user security by validating names and passwords.
+I have added validation logic using the express-validator library to the registration and addbook pages, which are all pages aside from login and search books (which due to audit or search function cant have validation) that require a user input. This helps prevent db crashes, and ensures application and user security by validating names and passwords.
 
 ## Sanatisation
 

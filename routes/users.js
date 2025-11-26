@@ -138,7 +138,7 @@ router.post("/loggedin", function (req, res, next) {
   });
 });
 
-router.get("/audit", function (req, res, next) {
+router.get("/audit", redirectLogin, function (req, res, next) {
   let sqlquery = "SELECT * FROM auditlog ORDER BY time DESC"; //get all audit logs (list by time added)
   // execute sql query
   db.query(sqlquery, (err, result) => {

@@ -41,7 +41,7 @@ global.db = db;
 // Create a session
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET || "somerandomstuff",
     resave: false,
     saveUninitialized: false,
     cookie: {

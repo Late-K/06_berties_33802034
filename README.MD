@@ -165,3 +165,49 @@ These fields include:
 - search inputs
 
 Passwords and price values arent wrapped since they should either never be rendered in html, or cant contain scripts due to their input type.
+
+## API
+
+Bertie's Books provides a JSON API for third-party developers to retrieve books in machine-readable format.
+
+#### Basic Usage
+
+```
+http://localhost:8000/api/books
+```
+
+Returns all books in the database.
+
+#### Other options
+
+Search for books containing "world":
+
+```
+http://localhost:8000/api/books?search=world
+```
+
+Find books priced between £5 and £10:
+
+```
+http://localhost:8000/api/books?minprice=5&maxprice=10
+```
+
+Sort books by name:
+
+```
+http://localhost:8000/api/books?sort=name
+```
+
+Sort books by price:
+
+```
+http://localhost:8000/api/books?sort=price
+```
+
+Combine multiple filters (e.g., search for "new" and only show books under £15, sorted by price):
+
+```
+http://localhost:8000/api/books?search=the&maxprice=15&sort=price
+```
+
+If no books match the filters, an empty array is returned.

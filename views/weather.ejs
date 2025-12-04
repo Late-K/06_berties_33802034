@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=shopData.shopName%> Weather</title>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <h1><%=shopData.shopName%> Weather</h1>
+    <h2>Check todays weather!</h2>
+    <form method="POST" action="/weather_result">
+      <p>
+        Enter City Name: <input type="text" id="city" name="city" required />
+      </p>
+      <button type="submit">Get Weather</button>
+    </form>
+  </body>
+</html>
